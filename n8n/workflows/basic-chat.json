@@ -1,0 +1,103 @@
+{
+  "name": "Basic Chat",
+  "nodes": [
+    {
+      "parameters": {
+        "public": true,
+        "initialMessages": "Hi there! 👋\nI'm Caretel Chat Assistant. How can I assist you today?",
+        "availableInChat": true,
+        "options": {
+          "responseMode": "lastNode"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.chatTrigger",
+      "typeVersion": 1.4,
+      "position": [
+        -256,
+        -320
+      ],
+      "id": "7236630f-3805-4dce-b13e-ebdaa1f4f423",
+      "name": "When chat message received",
+      "webhookId": "9a2540b5-d88a-4593-b0ad-adc1abb11a4f"
+    },
+    {
+      "parameters": {
+        "messages": {
+          "messageValues": [
+            {
+              "message": "You're Caretel's AI Assistant. Answer Clearly and concisely."
+            }
+          ]
+        },
+        "batching": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "typeVersion": 1.9,
+      "position": [
+        -32,
+        -192
+      ],
+      "id": "9d898a86-4f16-445d-86d9-fe21c25e2396",
+      "name": "Basic LLM Chain"
+    },
+    {
+      "parameters": {
+        "model": "qwen3:14b",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOllama",
+      "typeVersion": 1,
+      "position": [
+        -112,
+        16
+      ],
+      "id": "295484b9-daf5-452c-a45e-02836f4a9cbd",
+      "name": "Ollama Chat Model",
+      "credentials": {
+        "ollamaApi": {
+          "id": "rq6Wo1KYlkKV64uh",
+          "name": "Ollama account"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Ollama Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Basic LLM Chain",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "When chat message received": {
+      "main": [
+        [
+          {
+            "node": "Basic LLM Chain",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate",
+    "availableInMCP": false
+  },
+  "versionId": "138913dc-6129-47a0-aeb2-b070968d0b12",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "1e01b25211d1756484cdcf63938126f1570fb63e9e8343acd272a2a38ce2c05a"
+  },
+  "nodeGroups": [],
+  "id": "PzlhgGvZ7qicl2mC",
+  "tags": []
+}
