@@ -1,0 +1,48 @@
+#--- Secrets & Environment ---
+.env
+.env.*.local
+.env.local
+*.pem
+*.key
+
+#--- n8n runtime data ---
+n8n/data/
+n8n/credentials/
+n8n/backups/*
+!n8n/backups/.gitkeep
+
+# --- PostgreSQL data ---
+postgres/data/
+postgres/*.sql
+!postgres/init/*.sql
+
+#--- Qdrant storage ---
+qdrant/storage/
+qdrant/snapshots/
+
+#--- Knowledge base processed artifacts (regenerable, usually large) ---
+knowledge-base/embeddings/*
+!knowledge-base/embeddings/.gitkeep
+knowledge-base/processed/*
+!knowledge-base/processed/.gitkeep
+
+#--- Node / frontend (Next.js) ---
+frontend/node_modules/
+frontend/.next/
+frontend/out/
+frontend/.env*
+!frontend/.env
+
+#--- Docker ---
+docker/*.log
+
+#--- OS / editor ---
+.DS_Store
+Thumbs.db
+.vscode/*
+!.vscode/settings.json
+!.vscode/extensions.json
+
+#--- Logs ---
+*.log
+logs/
