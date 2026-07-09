@@ -97,6 +97,25 @@
           "name": "Qdrant account"
         }
       }
+    },
+    {
+      "parameters": {
+        "contextWindowLength": 10
+      },
+      "type": "@n8n/n8n-nodes-langchain.memoryPostgresChat",
+      "typeVersion": 1.4,
+      "position": [
+        -48,
+        -112
+      ],
+      "id": "97648cf8-ffe9-4c8b-830f-d99f6e37f131",
+      "name": "Postgres Chat Memory",
+      "credentials": {
+        "postgres": {
+          "id": "watoZsPySIdoCOMt",
+          "name": "Postgres account"
+        }
+      }
     }
   ],
   "pinData": {},
@@ -144,6 +163,17 @@
           }
         ]
       ]
+    },
+    "Postgres Chat Memory": {
+      "ai_memory": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
     }
   },
   "active": false,
@@ -152,7 +182,7 @@
     "binaryMode": "separate",
     "availableInMCP": false
   },
-  "versionId": "a6508ab1-8191-49d3-b7a4-ad0a1ea1c61c",
+  "versionId": "4f8cd1d9-9da8-4fc0-b5c2-53057ac0cde7",
   "meta": {
     "templateCredsSetupCompleted": true,
     "instanceId": "1e01b25211d1756484cdcf63938126f1570fb63e9e8343acd272a2a38ce2c05a"
